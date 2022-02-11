@@ -1,0 +1,7 @@
+<template>
+    <ul>
+        <li><a href="/">index</a></li>
+        <li><a href="/about">about</a></li>
+    </ul>
+</template>
+
