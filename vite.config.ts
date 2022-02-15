@@ -1,15 +1,16 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { join } from 'path'
+import path from 'path'
 import vitePages from './plugins/vitePages'
 import viteLayouts from './plugins/viteLayouts'
+import unpluginVueComponents from './plugins/unpluginVueComponents'
 
 // https://vitejs.dev/config/
 export default ({mode}) => 
     defineConfig({
         resolve: {
             alias: {
-                "@": join(__dirname, "./src")
+                "@": path.join(__dirname, "./src")
             }
         },
         server: {
@@ -19,6 +20,20 @@ export default ({mode}) =>
                 '/api': loadEnv(mode, process.cwd()).VITE_APP_BASE_API //读取.env.*变量
             }
         },
-        plugins: [vue(), vitePages(), viteLayouts()],
+        plugins: [vue(), vitePages(), viteLayouts(), unpluginVueComponents()],
+        css: {
+            preprocessorOptions: {
+              less: {
+                  javascriptEnabled: true,
+                  additionalData:  `@import "${path.resolve(__dirname, 'src/assets/app.less')}";`
+              }
+          }
+        },
+        // @ts-ignore 
+        ssgOptions: {// https://github.com/antfu/vite-ssg/issues/161
+            script: 'async',
+            formatting: 'minify',
+            format: 'cjs'
+        }
     })
 

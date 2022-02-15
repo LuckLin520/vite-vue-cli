@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --open",
     "ssg": "vite-ssg build"
   },
   "dependencies": {
-    "@vueuse/head": "^0.7.5",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },
@@ -17,8 +16,11 @@
     "@types/node": "^17.0.17",
     "@vitejs/plugin-vue": "^2.2.0",
     "@vue/server-renderer": "^3.2.30",
+    "@vueuse/head": "^0.7.5",
     "less": "^4.1.2",
+    "naive-ui": "^2.25.2",
     "typescript": "^4.5.4",
+    "unplugin-vue-components": "^0.17.18",
     "vite": "^2.8.0",
     "vite-plugin-pages": "^0.20.2",
     "vite-plugin-vue-layouts": "^0.6.0",

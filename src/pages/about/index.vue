@@ -1,6 +1,8 @@
 <template>
-    <div>about</div>
-    <button @click="$router.go(-1)">返回</button>
+    <div class="containner">
+        <div>about</div>
+        <n-button @click="$router.go(-1)">返回</n-button>
+    </div>
 </template>
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
@@ -18,7 +20,13 @@ useHead({
   ],
 })
 </script>
-<route lang="yml">
+<style scoped lang="less">
+    .containner{
+        background-color: var(--primary-color);
+        width: @mainWidth;
+    }
+</style>
+<route>
 meta:
   layout: test
 </route>
