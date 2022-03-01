@@ -6,8 +6,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     MyHeader: typeof import('./src/components/MyHeader/index.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NEl: typeof import('naive-ui')['NEl']
+    NInput: typeof import('naive-ui')['NInput']
+    NSpace: typeof import('naive-ui')['NSpace']
   }
 }
 

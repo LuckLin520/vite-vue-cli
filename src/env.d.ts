@@ -6,6 +6,9 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+
 interface ImportMetaEnv {
     VITE_APP_BASE_API: string
 }
+
+declare module 'js-cookie'

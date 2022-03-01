@@ -6,7 +6,7 @@ import viteLayouts from './plugins/viteLayouts'
 import unpluginVueComponents from './plugins/unpluginVueComponents'
 
 // https://vitejs.dev/config/
-export default ({mode}) => 
+export default ({mode}) =>
     defineConfig({
         resolve: {
             alias: {
@@ -29,7 +29,7 @@ export default ({mode}) =>
               }
           }
         },
-        // @ts-ignore 
+        // @ts-ignore
         ssgOptions: {// https://github.com/antfu/vite-ssg/issues/161
             script: 'async',
             formatting: 'minify',

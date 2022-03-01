@@ -14,7 +14,8 @@ const data = reactive({
 
 onMounted(() => {
     setTimeout(() => {
-        data.themeOverrides.common.primaryColor = 'yellow'
+        data.themeOverrides.common!.primaryColor = 'purple'
+        data.themeOverrides.common!.primaryColorHover = 'orange'
     }, 2000)
 })
 

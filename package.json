@@ -6,9 +6,14 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --open",
-    "ssg": "vite-ssg build"
+    "ssg": "vite-ssg build",
+    "ssg:test": "vite-ssg build --mode test"
   },
   "dependencies": {
+    "axios": "^0.26.0",
+    "js-cookie": "2.2.1",
+    "pinia": "^2.0.11",
+    "universal-cookie": "^4.0.4",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },
