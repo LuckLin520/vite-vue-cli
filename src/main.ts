@@ -6,7 +6,7 @@
 // import { setupLayouts } from 'virtual:generated-layouts'
 // import generatedRoutes from 'virtual:generated-pages'
 // import App from './App.vue'
-
+//
 // createApp(App)
 // .use(
 //     createRouter({
@@ -16,6 +16,9 @@
 // )
 // .mount('#app')
 
+
+
+
 /**
  * ssg
  */
@@ -23,6 +26,7 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import generatedRoutes from 'virtual:generated-pages'
 import { ViteSSG } from "vite-ssg"
 import App from './App.vue'
+
 const routes =  setupLayouts(generatedRoutes)
 
 export const createApp = ViteSSG(App, { routes }, (ctx) => {

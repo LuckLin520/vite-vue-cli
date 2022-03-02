@@ -11,7 +11,7 @@
                 <n-space>
                     <n-button type="primary" @click="onLogin">登录</n-button>
                     <n-button @click="testStore.logout">注销</n-button>
-                    <span>{{userData.userName}}</span>{{message}}--{{arr}}
+                    <span>{{testStore.userData.userName}}</span>{{testStore.message}}--{{testStore.arr}}
                     <!-- <span>{{testStore.userData}}</span> -->
                 </n-space>
             </li>
@@ -19,14 +19,15 @@
     </n-card>
 </template>
 <script setup lang="ts">
+import Cookies from 'js-cookie'
 import { useTestStore } from '@/store/test'
 import { storeToRefs } from 'pinia'
 import { onMounted } from 'vue'
 const testStore = useTestStore()
-const {userData, arr, message}: any = storeToRefs(testStore)
 
 onMounted(() => {
-    console.log(userData.userName)
+    testStore.save({userData: Cookies.getJSON('userData') || {}})
+    console.log(testStore.userData.userName)
 })
 
 const onLogin = async () => {
