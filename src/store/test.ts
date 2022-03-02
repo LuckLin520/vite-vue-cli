@@ -24,6 +24,16 @@ export const useTestStore = defineStore('test', {
         async logout() {
             this.userData = {}
             Cookies.remove('userData')
+        },
+        async asyncData() {
+            console.log('----------------start')
+            const re = await new Promise<any>((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(8)
+                }, 5000)
+            })
+            this.arr.push(re)
+            console.log('----------------end',this.arr)
         }
     }
 })

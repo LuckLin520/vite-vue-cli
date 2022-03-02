@@ -11,7 +11,7 @@
                 <n-space>
                     <n-button type="primary" @click="onLogin">登录</n-button>
                     <n-button @click="testStore.logout">注销</n-button>
-                    <span>{{testStore.userData.userName}}</span>{{testStore.message}}--{{testStore.arr}}
+                    <span>{{testStore.userData.userName}}</span>{{testStore.message}}--{{testStore.arr}}--
                     <!-- <span>{{testStore.userData}}</span> -->
                 </n-space>
             </li>
@@ -21,13 +21,17 @@
 <script setup lang="ts">
 import Cookies from 'js-cookie'
 import { useTestStore } from '@/store/test'
-import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
+import { onMounted, onServerPrefetch } from 'vue'
 const testStore = useTestStore()
 
+// ssg异步数据示例
+onServerPrefetch(async () => {
+    await testStore.asyncData()
+})
+
+// vite-ssg没有后端所以没有req没有cookie，更没有window
 onMounted(() => {
     testStore.save({userData: Cookies.getJSON('userData') || {}})
-    console.log(testStore.userData.userName)
 })
 
 const onLogin = async () => {
